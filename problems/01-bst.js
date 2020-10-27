@@ -58,13 +58,17 @@ class BST {
 
         while (currentNode.left || currentNode.right) {
             if (val < currentNode.val) {
-                curentNode = currentNode.left
+                currentNode = currentNode.left
+                newArray.push(currentNode);
             }
             if (val > currentNode.val) {
                 currentNode = currentNode.right
+                newArray.push(currentNode);
             }
             return true
         }
+
+        currentNode = newArray[newArray.length - 2];
 
         console.log(newArray)
 
