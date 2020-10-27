@@ -54,7 +54,22 @@ class BST {
 
     // Perform an iterative search through the binary search tree
     searchIter(val) {
-        // Your code here
+        if (!this.root) return false
+
+        //     let queue = [root]
+        //     let vals = []
+        //     while (queue.length) {
+        //         let node = queue.shift()
+        //         vals.push(node.val)
+        //         if (node.left) {
+        //             queue.push(node.left)
+        //         }
+        //         if (node.right) {
+        //             queue.push(node.right)
+        //         }
+
+        //     }
+        //     return vals
     }
 }
 
