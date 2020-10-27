@@ -13,38 +13,38 @@ class BST {
     }
 
     // Insert a node into the binary search tree
-    insert(val, currentNode = this.root) {
+    insert(val, tumor = this.root) {
         let newNode = new TreeNode(val);
         if (!this.root) {
             this.root = newNode;
             return;
         }
 
-        if (val < currentNode.val) {
-            if (!currentNode.left) {
-                currentNode.left = newNode;
+        if (val < tumor.val) {
+            if (!tumor.left) {
+                tumor.left = newNode;
             } else {
-                this.insert(val, currentNode.left);
+                this.insert(val, tumor.left);
             }
         } else {
-            if (!currentNode.right) {
-                currentNode.right = newNode;
+            if (!tumor.right) {
+                tumor.right = newNode;
             } else {
-                this.insert(val, currentNode.right);
+                this.insert(val, tumor.right);
             }
         }
     }
 
     // Perform a recursive search through the binary search tree
-    searchRecur(val, currentNode = this.root) {
-        if (!currentNode) return false;
-        if (val === currentNode.val) return true;
-        if (val !== currentNode.val) {
-            if (currentNode.left) {
-                return this.searchRecur(val, currentNode.left)
+    searchRecur(val, tumor = this.root) {
+        if (!tumor) return false;
+        if (val === tumor.val) return true;
+        if (val !== tumor.val) {
+            if (tumor.left) {
+                return this.searchRecur(val, tumor.left)
             }
-            if (currentNode.right) {
-                return this.searchRecur(val, currentNode.right)
+            if (tumor.right) {
+                return this.searchRecur(val, tumor.right)
             }
             return false;
         }
@@ -53,31 +53,18 @@ class BST {
     // Perform an iterative search through the binary search tree
     searchIter(val) {
         if (!this.root) return false
-        let currentNode = this.root
-        let newArray = [currentNode.val]
+        let tumor = this.root
 
-        while (currentNode.left || currentNode.right) {
-            if (val < currentNode.val) {
-                currentNode = currentNode.left
-                newArray.push(currentNode);
-            }
-            if (val > currentNode.val) {
-                currentNode = currentNode.right
-                newArray.push(currentNode);
-            }
-            return true
-        }
-
-        currentNode = newArray[newArray.length - 2];
-
-        console.log(newArray)
-
-        for (let i = 0; i < vals.length; i++) {
-            if (vals[i] === val) {
+        while (tumor) {
+            if (val < tumor.val) {
+                tumor = tumor.left
+            } else if (val > tumor.val) {
+                tumor = tumor.right
+            } else {
                 return true
             }
-            return false
         }
+        return false
     }
 }
 
