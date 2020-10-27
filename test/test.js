@@ -7,7 +7,7 @@ const { getHeight } = require('../problems/03-get-height');
 
 describe('BST', () => {
     describe('#constructor()', () => {
-        it ('should initialize the `root` property to null', () => {
+        it('should initialize the `root` property to null', () => {
             let tree = new BST();
             expect(tree).to.have.property('root');
             expect(tree.root).to.equal(null);
@@ -15,7 +15,7 @@ describe('BST', () => {
     });
 
     describe('#insert(val)', () => {
-        it ('should insert a TreeNode with the given value into the BST', () => {
+        it('should insert a TreeNode with the given value into the BST', () => {
             let tree = new BST();
             tree.insert(10);
             tree.insert(5);
@@ -66,7 +66,7 @@ describe('BST', () => {
         });
 
         context('when the val is contained in the BST', () => {
-            it ('should return true', () => {
+            it('should return true', () => {
                 expect(tree.searchRecur(10)).to.equal(true);
                 // expect(tree.searchRecur(7)).to.equal(true);
                 // expect(tree.searchRecur(16)).to.equal(true);
@@ -74,7 +74,7 @@ describe('BST', () => {
         });
 
         context('when the val is not contained in the BST', () => {
-            it ('should return false', () => {
+            it('should return false', () => {
                 expect(tree.searchRecur(-4)).to.equal(false);
                 expect(tree.searchRecur(1.5)).to.equal(false);
                 expect(tree.searchRecur(14)).to.equal(false);
@@ -107,7 +107,7 @@ describe('BST', () => {
         });
 
         context('when the val is contained in the BST', () => {
-            it ('should return true', () => {
+            it('should return true', () => {
                 expect(tree.searchIter(10)).to.equal(true);
                 expect(tree.searchIter(7)).to.equal(true);
                 expect(tree.searchIter(16)).to.equal(true);
@@ -115,7 +115,7 @@ describe('BST', () => {
         });
 
         context('when the val is not contained in the BST', () => {
-            it ('should return false', () => {
+            it('should return false', () => {
                 expect(tree.searchIter(-4)).to.equal(false);
                 expect(tree.searchIter(1.5)).to.equal(false);
                 expect(tree.searchIter(14)).to.equal(false);
@@ -125,60 +125,60 @@ describe('BST', () => {
 });
 
 describe('findMin()', () => {
-  context('when the tree is empty', () => {
-    it ('should return null', () => {
-      expect(findMin(null)).to.equal(null);
-    });
-  })
-
-  context('when the root has no children', () => {
-    it ('should return the root, which is the minimum value in the bst', () => {
-      let a = new TreeNode(10);
-      expect(findMin(a)).to.equal(a);
-    });
-  })
-
-  context('when the root only has right children', () => {
-    it ('should return the minimum value in the bst', () => {
-      let a = new TreeNode(10);
-      let b = new TreeNode(15);
-      let c = new TreeNode(12);
-      
-      a.right = b;
-      b.left = c;
-      
-      expect(findMin(a)).to.equal(a);
-    });
-  })
-    
-  context('when the root has left children', () => {
-    it ('should return the minimum value in the bst', () => {
-      let a = new TreeNode(10);
-      let b = new TreeNode(9);
-      let c = new TreeNode(15);
-      let d = new TreeNode(1);
-      let e = new TreeNode(7);
-      let f = new TreeNode(5);
-      let g = new TreeNode(12);
-      
-      a.left = b;
-      a.right = c;
-      b.left = d;
-      d.right = e;
-      e.left = f;
-      c.left = g;
-      
-      expect(findMin(a)).to.equal(d);
+    context('when the tree is empty', () => {
+        it('should return null', () => {
+            expect(findMin(null)).to.equal(null);
+        });
     })
-  })
+
+    context('when the root has no children', () => {
+        it('should return the root, which is the minimum value in the bst', () => {
+            let a = new TreeNode(10);
+            expect(findMin(a)).to.equal(a);
+        });
+    })
+
+    context('when the root only has right children', () => {
+        it('should return the minimum value in the bst', () => {
+            let a = new TreeNode(10);
+            let b = new TreeNode(15);
+            let c = new TreeNode(12);
+
+            a.right = b;
+            b.left = c;
+
+            expect(findMin(a)).to.equal(a);
+        });
+    })
+
+    context('when the root has left children', () => {
+        it('should return the minimum value in the bst', () => {
+            let a = new TreeNode(10);
+            let b = new TreeNode(9);
+            let c = new TreeNode(15);
+            let d = new TreeNode(1);
+            let e = new TreeNode(7);
+            let f = new TreeNode(5);
+            let g = new TreeNode(12);
+
+            a.left = b;
+            a.right = c;
+            b.left = d;
+            d.right = e;
+            e.left = f;
+            c.left = g;
+
+            expect(findMin(a)).to.equal(d);
+        })
+    })
 });
 
 describe('getHeight()', () => {
-    it ('should return -1 for an empty root', () => {
+    it('should return -1 for an empty root', () => {
         expect(getHeight(null)).to.equal(-1);
     });
 
-    it ('should correctly return the height of a balanced tree', () => {
+    it('should correctly return the height of a balanced tree', () => {
         let a = new TreeNode('a');
         expect(getHeight(a)).to.equal(0);
 
@@ -188,7 +188,7 @@ describe('getHeight()', () => {
         let e = new TreeNode('e');
         let f = new TreeNode('f');
         let g = new TreeNode('g');
-        
+
         a.left = b;
         a.right = c;
         b.left = d;
@@ -199,11 +199,11 @@ describe('getHeight()', () => {
         expect(getHeight(a)).to.equal(2);
     });
 
-    it ('should correctly return the height of an unbalanced tree', () => {
+    it('should correctly return the height of an unbalanced tree', () => {
         let a = new TreeNode('a');
         let c = new TreeNode('c');
         let f = new TreeNode('f');
-        
+
         a.right = c;
         c.left = f;
 
